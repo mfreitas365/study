@@ -32,6 +32,7 @@ winrm get winrm/config/client/auth
 #changed editor Visual Studio Code
 #10/04/2020
 
+#changed 2 editor Visual Studio Code
 
 
 
