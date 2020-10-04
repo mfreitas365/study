@@ -29,6 +29,9 @@ Set-ExecutionPolicy RemoteSigned
 winrm get winrm/config/client/auth
 
 
+#changed editor Visual Studio Code
+#10/04/2020
+
 
 
 
