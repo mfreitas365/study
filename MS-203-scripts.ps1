@@ -29,7 +29,7 @@ Get-EXOCasMailbox
 Install-Module -Name ExchangeOnlineManagement -RequiredVersion 2.0.3
 #Connect with user MFA
 Import-Module ExchangeOnlineManagement
-Connect-ExchangeOnline -UserPrincipalName marcelo.freitas@mfreitas365.net -ShowProgress $true
+Connect-ExchangeOnline -UserPrincipalName it.ciso@demosmfreitas365security.online -ShowProgress $true
 Disconnect-ExchangeOnline
 }
 
@@ -37,4 +37,12 @@ Disconnect-ExchangeOnline
 New-DkimSigningConfig -DomainName demosmfreitas365security.online -Enabled $false
 Get-DkimSigningConfig -Identity demosmfreitas365security.online | Format-List Selector1CNAME, Selector2CNAME
 #end
+
+#EOP
+{
+Get-HostedOutboundSpamFilterRule | Format-List
+Get-HostedOutboundSpamFilterRule -Identity "Contoso Executives" | Format-List
+}
+
+Get-Mailbox -Identity it.ciso@demosmfreitas365security.online | fl
 
