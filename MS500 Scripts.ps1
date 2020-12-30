@@ -21,7 +21,6 @@ Install-Module -name Microsoft.Online.Sharepoint.PowerShell
 #Connect with a user Sharepoint Online pw - MSDx530006.onmicrosoft.com
 #Tenant - MSDx530006
 #admin@MSDx530006.onmicrosoft.com 
-#emc2@4ADM20
 $adminUPN="it.ciso@demosmfreitas365security.online"
 $orgName="MSDx530006"
 $userCredential = Get-Credential -UserName $adminUPN -Message "Type the password."
