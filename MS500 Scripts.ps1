@@ -1,12 +1,29 @@
-﻿#verify if installed module
+﻿#-----------------------------------
+
+#-----------------------------------
+# Configure Azure AD Connect
+{
+Install-Module AzureAD
+Connect-AzAccount
+Set-MsolDirSyncEnabled –EnableDirSync $false
+
+Start-ADSyncSyncCycle -Policytype Initial 
+Set-ADSyncScheduler -SyncCycleEnabled $true
+}
+
+
+#verify if installed module
 Get-Module -Name Microsoft.Online.Sharepoint.Powershell -ListAvailable | Select name,version
 
 #install module Sharepoint Online Powershell
 Install-Module -name Microsoft.Online.Sharepoint.PowerShell
 
-#Connect with a user Sharepoint Online pw - M365x766354.onmicrosoft.com
+#Connect with a user Sharepoint Online pw - MSDx530006.onmicrosoft.com
+#Tenant - MSDx530006
+#admin@MSDx530006.onmicrosoft.com 
+#emc2@4ADM20
 $adminUPN="it.ciso@demosmfreitas365security.online"
-$orgName="M365x766354"
+$orgName="MSDx530006"
 $userCredential = Get-Credential -UserName $adminUPN -Message "Type the password."
 Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential
 
@@ -19,7 +36,7 @@ Set-SPOSite -Identity https://m365x766354-my.sharepoint.com/personal/it_ciso_dem
 #Get user OneDrive's properties
 Get-SPOSite -Identity https://m365x766354-my.sharepoint.com/personal/it_ciso_demosmfreitas365security_online | fl
 
-
+#-----------------------------------
 #Install Exchange Online PowerShell
 Install-Module -Name ExchangeOnlineManagement
 
