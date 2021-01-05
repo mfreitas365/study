@@ -14,11 +14,15 @@ Set-ADSyncScheduler -SyncCycleEnabled $true
 #--------------------------------
 # Connect Sharepoint Online with a user and password
 # $adminUPN="<the full email address of a SharePoint administrator account, example: jdoe@contosotoycompany.onmicrosoft.com>"
-$adminUPN="it.ciso@"
+$adminUPN="it.ciso@demosmfreitas365security.online"
 # $orgName="<name of your Office 365 organization, example: contosotoycompany>"
-$orgName=""
+$orgName="MSDx530006"
 $userCredential = Get-Credential -UserName $adminUPN -Message "Type the password."
 Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential
+
+Get-SPOTenant | fl *conditional*
+Set-SPOTenant -ConditionalAccessPolicy AllowLimitedAccess`
+
 
 #--------------------------------
 
