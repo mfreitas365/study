@@ -23,6 +23,9 @@ Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userC
 Get-SPOTenant | fl *conditional*
 Set-SPOTenant -ConditionalAccessPolicy AllowLimitedAccess`
 
+# Office 365 CDN - To enable your organization to use both public and private origins with the default configuration, type the following command:
+Set-SPOTenantCdnEnabled -CdnType Both -Enable $true
+
 
 #--------------------------------
 
