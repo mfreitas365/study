@@ -46,3 +46,11 @@ Get-HostedOutboundSpamFilterRule -Identity "Contoso Executives" | Format-List
 
 Get-Mailbox -Identity it.ciso@demosmfreitas365security.online | fl
 
+#Compliance Management
+{
+Get-Mailbox | where {$_.RetentionPolicy -ne $NULL}
+Get-Mailbox | where {$_.RetentionPolicy -ne $NULL} | Start-ManagedFolderAssistant
+Get-Mailbox -Identity it.ciso@demosmfreitas365security.online 
+Start-ManagedFolderAssistant -Identity it.ciso@demosmfreitas365security.online
+}
+
