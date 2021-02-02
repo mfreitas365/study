@@ -6,11 +6,21 @@
 Install-Module AzureAD
 Connect-AzAccount
 Set-MsolDirSyncEnabled –EnableDirSync $false
+get-msoldirsyncenabled
 
 Start-ADSyncSyncCycle -Policytype Initial 
 Set-ADSyncScheduler -SyncCycleEnabled $true
 }
 
+
+Install-Module -Name AzureAD
+Connect-AzureAD
+Connect-MsolService
+Set-MsolDirSyncEnabled –EnableDirSync $false
+get-msoldirsyncenabled
+
+Start-ADSyncSyncCycle -Policytype Initial 
+Set-ADSyncScheduler -SyncCycleEnabled $true
 #--------------------------------
 # Connect Sharepoint Online with a user and password
 # $adminUPN="<the full email address of a SharePoint administrator account, example: jdoe@contosotoycompany.onmicrosoft.com>"
