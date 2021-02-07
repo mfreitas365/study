@@ -26,5 +26,12 @@ Get-MsolUserRole –UserPrincipalName “it.ciso@demosmfreitas365security.online
 $role = Get-MsolRole –RoleName “Exchange Administrator”
 Get-MsolRoleMember –RoleObjectId $role.ObjectId
 
+#=========
+#Identify users who have registered for MFA 
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+
+
+
+
 
 
