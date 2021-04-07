@@ -1,0 +1,18 @@
+
+# Reference: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+
+az --version
+
+az login
+
+az ad user create --display-name "Abby Brown" \
+                  --password "<password>" \
+                  --user-principal-name "AbbyB@contoso.com" \
+                  --force-change-password-next-login true \
+                  --mail-nickname "AbbyB"
+
+
+az ad user create --display-name "Abby Brown" --password "<password>" --user-principal-name "AbbyB@contoso.com" --force-change-password-next-login true --mail-nickname "AbbyB"
+
+
+
