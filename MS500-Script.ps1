@@ -38,6 +38,11 @@ Set-SPOTenantCdnEnabled -CdnType Both -Enable $true
 
 
 #--------------------------------
+# Unified Audit Logs
+
+Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled
+
+#--------------------------------
 
 
 #verify if installed module
